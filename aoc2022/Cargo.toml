@@ -1,0 +1,5 @@
+[package]
+name = "aoc2022"
+version = "0.1.0"
+authors = ["chohner <mail@chohner.com>"]
+edition = "2021"

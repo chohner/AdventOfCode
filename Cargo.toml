@@ -1,5 +1,3 @@
-[package]
-name = "aoc2022"
-version = "0.1.0"
-authors = ["chohner <mail@chohner.com>"]
-edition = "2021"
+[workspace]
+members = ["aoc2021", "aoc2022"]
+default-members = ["aoc2022"]

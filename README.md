@@ -1,4 +1,4 @@
-# Advent of Code 2022
+# Advent of Code
 
 [Advent Of Code](https://adventofcode.com/) is an Advent calendar of small programming puzzles. This repo contains my solutions in Rust.
 
@@ -6,9 +6,12 @@
 
 Please refer to the [official Rust documentation](https://www.rust-lang.org/tools/install) on how to install Rust on your machine.
 
-Once installed you can run a specific day:
+This repo uses workspaces. However, the binaries current can't be executed from root due to the relative paths of data files.
+
+Instead, navigate to the corresponding year and run a specific day:
 
 ```bash
+> cd aoc2022
 > cargo run --bin 1
 
 # Finished dev [unoptimized + debuginfo] target(s) in 0.04s
