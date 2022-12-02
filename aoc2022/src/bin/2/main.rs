@@ -1,5 +1,4 @@
 use aoc2022::utils;
-// 14328 too high
 
 #[derive(Debug, PartialEq, Clone, Copy)]
 enum Hand {
