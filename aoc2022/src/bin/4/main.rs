@@ -12,11 +12,9 @@ impl FromStr for Range {
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         let (min, max) = s.split_once('-').unwrap();
-        let min_fromstr = min.parse::<u32>()?;
-        let max_fromstr = max.parse::<u32>()?;
         Ok(Range {
-            min: min_fromstr,
-            max: max_fromstr,
+            min: min.parse::<u32>()?,
+            max: max.parse::<u32>()?,
         })
     }
 }
@@ -25,6 +23,10 @@ impl Range {
     fn is_overlapping(&self, other: &Range) -> bool {
         (self.min >= other.min && self.max <= other.max)
             || (other.min >= self.min && other.max <= self.max)
+    }
+
+    fn has_overlap(&self, other: &Range) -> bool {
+        self.min <= other.max && self.max >= other.min
     }
 }
 
@@ -37,7 +39,11 @@ fn part_1(input: &Vec<Vec<Range>>) -> Option<i64> {
 }
 
 fn part_2(input: &Vec<Vec<Range>>) -> Option<i64> {
-    None
+    let count = input
+        .iter()
+        .filter(|&ranges| ranges[0].has_overlap(&ranges[1]))
+        .count();
+    Some(count as i64)
 }
 
 fn parse_input(lines: Vec<String>) -> Vec<Vec<Range>> {
