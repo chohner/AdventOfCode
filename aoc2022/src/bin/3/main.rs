@@ -24,7 +24,13 @@ fn part_1(input: &Vec<Vec<char>>) -> Option<i64> {
 }
 
 fn part_2(input: &Vec<Vec<char>>) -> Option<i64> {
-    None
+    let intersection_sum: u32 = input
+        .chunks(3)
+        .map(|bags| char_intersection(&char_intersection(&bags[0], &bags[1]), &bags[2]))
+        .map(|intersec| char_to_prio(intersec[0]))
+        .sum();
+
+    Some(intersection_sum as i64)
 }
 
 fn char_to_prio(c: char) -> u32 {
